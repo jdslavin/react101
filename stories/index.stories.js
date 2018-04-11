@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { IntlProvider } from 'react-intl';
 
-import { App } from '../src/app';
+import  App from '../src/App';
 
 storiesOf('App', module)
   .addDecorator((getStory) => (

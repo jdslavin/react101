@@ -107,7 +107,7 @@ Add **index.html** file to your src folder
 </html>
 ```
 
-Install html-webpack-plugin as a dev dependency:
+## Install html-webpack-plugin as a dev dependency:
 
 ``` 
 npm i html-webpack-plugin -D
@@ -190,7 +190,7 @@ quit storybook with ^C
 ```
 
 
-Create file **app.js** with the following contents
+Create file **App.js** with the following contents
 
 ``` 
 import React from "react";
@@ -226,7 +226,7 @@ Run storybook again
 yarn storybook
 ```
 
-Modify app.js text
+Modify App.js text
 ```
 import React from "react";
 
@@ -236,7 +236,7 @@ export const App = () => {
 ```
 
 ## Turn app into a component
-Update **app.js**
+Update **App.js**
 
 ```
 import React from "react";
@@ -279,7 +279,7 @@ storiesOf('App', module)
 
 ```
 
-Update **app.js**
+Update **App.js**
 ``` 
 import React from "react";
 import { FormattedMessage } from 'react-intl';
@@ -308,6 +308,7 @@ https://material-ui-next.com/
 ```
 ```
 yarn add material-ui@next
+yarn add @material-ui/icons
 ```
 
 Update **index.js** to show a title 
@@ -335,6 +336,218 @@ export class App extends React.Component {
 }
 ```
 
+## Build out Rendering of UI 
+Add file **App.js**
+``` 
+import React from "react";
+import MovieList from './MovieList';
+import SearchBox from './SearchBox';
+import { FormattedMessage } from 'react-intl';
+import Typography from 'material-ui/Typography';
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+
+
+const styles = theme => ({
+  container: {
+    flexGrow: 1,
+  },
+  title: {
+    flex: 1,
+  },
+});
+
+export class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const name = 'Jeff';
+    const {classes} = this.props;
+
+    return (
+      <div className={classes.container}>
+        <div>
+          <AppBar position="static" color="default">
+            <Toolbar>
+              <Typography variant='title' className={classes.title}>
+                <FormattedMessage
+                  id="hello"
+                  defaultMessage='Movies for {name}!!'
+                  values={{name: name}}/>
+              </Typography>
+              <SearchBox/>
+            </Toolbar>
+          </AppBar>
+        </div>
+        <MovieList/>
+      </div>);
+  }
+}
+
+App.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(App);
+```
+
+Add file **MovieList.js**
+``` 
+import React from "react";
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import Paper from 'material-ui/Paper';
+
+const styles = theme => ({
+  root: {
+    marginTop: '20px',
+    width: '100%',
+  },
+  table: {
+    minWidth: 700,
+  },
+  overview: {
+      width: '50%'
+    }
+
+});
+
+
+let id = 0;
+function createData(title, release_date, overview) {
+  id += 1;
+  return { id, title, release_date, overview };
+}
+
+const data = [
+  createData("American Pie", "1999-07-09", "At a high-school party, four friends find that losing their collective virginity isn't as easy as they had thought. But they still believe that they need to do so before college. To motivate themselves, they enter a pact to all \"score.\" by their senior prom."),
+  createData("American Sniper", "2014-12-11", "U.S. Navy SEAL Chris Kyle takes his sole mission—protect his comrades—to heart and becomes one of the most lethal snipers in American history. His pinpoint accuracy not only saves countless lives but also makes him a prime target of insurgents. Despite grave danger and his struggle to be a good husband and father to his family back in the States, Kyle serves four tours of duty in Iraq. However, when he finally returns home, he finds that he cannot leave the war behind."),
+  createData("American Beauty", "1999-09-15", "Lester Burnham, a depressed suburban father in a mid-life crisis, decides to turn his hectic life around after developing an infatuation with his daughter's attractive friend."),
+];
+
+
+export class MovieList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const {classes} = this.props;
+
+    return (
+      <Paper className={classes.root}>
+        <Table className={classes.table}>
+          <TableHead>
+            <TableRow>
+              <TableCell>Title</TableCell>
+              <TableCell>Release Date</TableCell>
+              <TableCell>Summary</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {data.map(n => {
+              return (
+                <TableRow key={n.id}>
+                  <TableCell>{n.title}</TableCell>
+                  <TableCell>{n.release_date}</TableCell>
+                  <TableCell className={classes.overview}>{n.overview}</TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </Paper>
+    );
+  }
+}
+
+MovieList.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(MovieList);
+```
+Add file **SearchBox.js**
+``` 
+import React from "react";
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+
+import TextField from 'material-ui/TextField';
+import  { InputAdornment } from 'material-ui/Input';
+import Search from '@material-ui/icons/Search';
+
+const styles = theme => ({
+  search: {
+    marginLeft: 'auto'
+  }
+});
+
+export class SearchBox extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const {classes} = this.props;
+    return (
+      <div className={classes.search}>
+        <TextField
+          id="input-with-icon-adornment"
+          placeholder="Search..."
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Search />
+              </InputAdornment>
+            )
+          }}
+        />
+      </div>
+    );
+  }
+}
+
+SearchBox.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(SearchBox);
+```
+
+Update **index.js**
+``` 
+import React from "react";
+import ReactDOM from "react-dom";
+
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById("index"));
+```
+
+Update **stories/index.stories.js**
+``` 
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { IntlProvider } from 'react-intl';
+
+import  App from '../src/App';
+
+storiesOf('App', module)
+  .addDecorator((getStory) => (
+    <IntlProvider locale="en">
+      { getStory() }
+    </IntlProvider>
+  ))
+  .add('storybook', () => <App/>);
+```
+
 ## Add application state using redux
 ``` 
 https://github.com/reactjs/redux
@@ -342,5 +555,9 @@ https://github.com/reactjs/redux
 ```
 yarn add react-redux
 yarn add redux-devtools -D
+```
+
+``` 
+https://api.themoviedb.org/3/search/movie?api_key=057dfa32a18eed0f2dc23dc2e80ed8a0&language=en-US&query=American&page=1&include_adult=false
 ```
 
