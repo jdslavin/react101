@@ -18,7 +18,7 @@ const styles = theme => ({
   },
 });
 
-export class App extends React.Component {
+export class Movies extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -47,8 +47,8 @@ export class App extends React.Component {
   }
 }
 
-App.propTypes = {
+Movies.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(App);
+export default withStyles(styles)(Movies);

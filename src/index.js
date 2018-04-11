@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import App from './App';
+import Movies from './Movies';
 
-ReactDOM.render(<App />, document.getElementById("index"));
+ReactDOM.render(<Movies />, document.getElementById("index"));

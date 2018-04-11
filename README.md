@@ -190,7 +190,7 @@ quit storybook with ^C
 ```
 
 
-Create file **App.js** with the following contents
+Create file **Movies.js** with the following contents
 
 ``` 
 import React from "react";
@@ -226,7 +226,7 @@ Run storybook again
 yarn storybook
 ```
 
-Modify App.js text
+Modify Movies.js text
 ```
 import React from "react";
 
@@ -236,7 +236,7 @@ export const App = () => {
 ```
 
 ## Turn app into a component
-Update **App.js**
+Update **Movies.js**
 
 ```
 import React from "react";
@@ -279,7 +279,7 @@ storiesOf('App', module)
 
 ```
 
-Update **App.js**
+Update **Movies.js**
 ``` 
 import React from "react";
 import { FormattedMessage } from 'react-intl';
@@ -337,7 +337,7 @@ export class App extends React.Component {
 ```
 
 ## Build out Rendering of UI 
-Add file **App.js**
+Add file **Movies.js**
 ``` 
 import React from "react";
 import MovieList from './MovieList';
@@ -359,7 +359,7 @@ const styles = theme => ({
   },
 });
 
-export class App extends React.Component {
+export class Movies extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -388,11 +388,11 @@ export class App extends React.Component {
   }
 }
 
-App.propTypes = {
+Movies.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(App);
+export default withStyles(styles)(Movies);
 ```
 
 Add file **MovieList.js**
@@ -526,9 +526,9 @@ Update **index.js**
 import React from "react";
 import ReactDOM from "react-dom";
 
-import App from './App';
+import Movies from './Movies';
 
-ReactDOM.render(<App />, document.getElementById("index"));
+ReactDOM.render(<Movies />, document.getElementById("index"));
 ```
 
 Update **stories/index.stories.js**
@@ -537,24 +537,30 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { IntlProvider } from 'react-intl';
 
-import  App from '../src/App';
+import  Movies from '../src/Movies';
 
-storiesOf('App', module)
+storiesOf('Movies', module)
   .addDecorator((getStory) => (
     <IntlProvider locale="en">
       { getStory() }
     </IntlProvider>
   ))
-  .add('storybook', () => <App/>);
+  .add('storybook', () => <Movies/>);
 ```
 
 ## Add application state using redux
 ``` 
 https://github.com/reactjs/redux
+https://github.com/reactjs/reselect
+https://github.com/facebook/immutable-js
+https://github.com/gajus/redux-immutable
 ```
 ```
 yarn add react-redux
 yarn add redux-devtools -D
+yarn add immutable
+yarn add redux-immutable
+yarn add reselect
 ```
 
 ``` 
