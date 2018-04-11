@@ -1,5 +1,7 @@
 import React from "react";
 import { FormattedMessage } from 'react-intl';
+import Typography from 'material-ui/Typography';
+
 
 export class App extends React.Component {
   constructor(props) {
@@ -9,11 +11,11 @@ export class App extends React.Component {
   render() {
     const name = 'Jeff';
     return (
-      <div>
+      <Typography variant='title'>
         <FormattedMessage
           id="hello"
           defaultMessage='Hello {name}!!'
           values={{name: name}}/>
-      </div>);
+      </Typography>);
   }
 }
