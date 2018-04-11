@@ -1,10 +1,10 @@
-##Prereqs 
+## Prereqs 
 ```
 https://nodejs.org/en/
 https://yarnpkg.com/lang/en/docs/install/
 ```
 
-##Make a new project
+## Make a new project
 
 ```
 mkdir react101
@@ -158,7 +158,7 @@ If you now run ```npm run start``` you should see index.html being generated in 
 
 Run ```open dist/index.html``` and you should see “Hello React” in your browser.
 
-##Setup webpack-dev-server
+## Setup webpack-dev-server
 ```
  npm i webpack-dev-server -D
 ```
@@ -177,7 +177,7 @@ Start webpack dev server on port 8080 (default)
 npm run start
 ```
 
-###Add Storybook to the application
+## Add Storybook to the application
 ``` 
 https://storybook.js.org/
 ```
@@ -235,7 +235,7 @@ export const App = () => {
 };
 ```
 
-###Turn app into a component
+## Turn app into a component
 Update **app.js**
 
 ```
@@ -252,7 +252,7 @@ export class App extends React.Component {
 }
 ```
 
-###Add internationalization support
+## Add internationalization support
 ```
 https://github.com/yahoo/react-intl
 ```
@@ -302,7 +302,7 @@ export class App extends React.Component {
 }
 ```
 
-###Add material-ui for prebuilt ui components
+## Add material-ui for prebuilt ui components
 ``` 
 https://material-ui-next.com/
 ```
@@ -310,4 +310,4 @@ https://material-ui-next.com/
 yarn add material-ui@next
 ```
 
-###Add application state
+## Add application state
