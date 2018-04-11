@@ -58,7 +58,7 @@ export class MovieList extends React.Component {
 
 MovieList.propTypes = {
   classes: PropTypes.object.isRequired,
-  movies: PropTypes.arrray,
+  movies: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({

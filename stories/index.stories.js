@@ -34,5 +34,3 @@ storiesOf('Movies', module)
     </IntlProvider>
   ))
   .add('storybook', () => <Provider store={store}><Movies/></Provider>);
-
-
