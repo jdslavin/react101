@@ -48,7 +48,8 @@ export class SearchBox extends React.Component {
 SearchBox.propTypes = {
   classes: PropTypes.object.isRequired,
   searchString: PropTypes.string,
-  onInputSearchString: PropTypes.function
+  onInputSearchString: PropTypes.func,
+  onKeyDown: PropTypes.func
 };
 
 const mapStateToProps = createStructuredSelector({

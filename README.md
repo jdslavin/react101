@@ -554,6 +554,7 @@ https://github.com/reactjs/redux
 https://github.com/reactjs/reselect
 https://github.com/facebook/immutable-js
 https://github.com/gajus/redux-immutable
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
 ```
 ```
 yarn add react-redux
@@ -818,7 +819,8 @@ export class SearchBox extends React.Component {
 SearchBox.propTypes = {
   classes: PropTypes.object.isRequired,
   searchString: PropTypes.string,
-  onInputSearchString: PropTypes.function
+  onInputSearchString: PropTypes.func,
+  onKeyDown: PropTypes.func
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -869,10 +871,218 @@ export const moviesApp = combineReducers({
 });
 ```
 
-## Hookup UI to backend
-
-
-``` 
-https://api.themoviedb.org/3/search/movie?api_key=057dfa32a18eed0f2dc23dc2e80ed8a0&language=en-US&query=American&page=1&include_adult=false
+## Listen for external Side effecting Actions
+```
+https://redux-saga.js.org/
+yarn add redux-saga
 ```
 
+``` 
+https://github.com/gaearon/react-hot-loader
+yarn add react-hot-loader
+yarn add babel-runtime
+yarn add babel-plugin-transform-runtime -D
+```
+
+Update **.babelrc**
+``` 
+{
+  "plugins": ["react-hot-loader/babel", ["transform-runtime", {
+    "polyfill": false,
+    "regenerator": true
+  }]],
+  "presets": ["env", "react"]
+}
+```
+
+Add file **sagas.js** 
+```
+import { START_SEARCH } from "./actions";
+import { takeEvery } from "redux-saga/effects";
+
+function* search()
+{
+  console.log("search called");
+}
+
+export function* watchForSearchActions() {
+    yield takeEvery(START_SEARCH, search);
+}
+```
+
+Update **index.js**
+``` 
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from 'react-redux';
+import { IntlProvider } from 'react-intl';
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import "babel-core/register"
+
+import { AppContainer } from 'react-hot-loader';
+import Movies from './Movies';
+import { moviesApp } from './reducers';
+import { watchForSearchActions } from "./sagas";
+
+
+
+/* eslint-disable no-underscore-dangle */
+const composeEnhancers =
+  process.env.NODE_ENV !== 'production' &&
+  typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
+/* eslint-enable */
+
+const sagaMiddleware = createSagaMiddleware();
+
+const enhancers = [
+  applyMiddleware(sagaMiddleware),
+];
+
+const store = createStore(
+  moviesApp,
+  composeEnhancers(...enhancers)
+);
+
+sagaMiddleware.run(watchForSearchActions);
+
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <IntlProvider locale="en">
+        <Provider store={store}>
+            <Component />
+        </Provider>
+      </IntlProvider>
+    </AppContainer>,
+    document.getElementById('index')
+  );
+};
+
+render(Movies);
+
+// Webpack Hot Module Replacement API
+if (module.hot) {
+  module.hot.accept('./Movies', () => {
+    // if you are using harmony modules ({modules:false})
+    render(Movies);
+    // in all other cases - re-require App manually
+    render(require('./Movies')); // eslint-disable-line global-require
+  });
+}
+```
+
+## Hook up to the remote to referesh data
+``` 
+https://github.com/whatwg/fetch
+yarn add whatwg-fetch
+```
+Update **actions.js**
+``` 
+export const CHANGE_SEARCH_STRING = 'react101/CHANGE_SEARCH_STRING';
+export const START_SEARCH = 'react101/START_SEARCH';
+export const CHANGE_MOVIEDB = 'react101/CHANGE_MOVIEDB';
+
+export function changeSearchString(searchString) {
+  return {
+    type: CHANGE_SEARCH_STRING,
+    searchString,
+  };
+}
+
+export function startSearch() {
+  return {
+    type: START_SEARCH,
+  };
+}
+
+
+export function changeMovieDB(movies) {
+  return {
+    type: CHANGE_MOVIEDB,
+    movies
+  };
+}
+```
+
+Update **sagas.js**
+```
+import { changeMovieDB, START_SEARCH } from "./actions";
+import { takeEvery, call, put, select } from "redux-saga/effects";
+import 'whatwg-fetch';
+import { makeSelectSearchString } from "./selectors";
+
+function parseJSON(response) {
+  return response.json();
+}
+
+function checkStatus(response) {
+  if (response.status >= 200 && response.status < 300) {
+    return response;
+  }
+
+  const error = new Error(response.statusText);
+  error.response = response;
+  throw error;
+}
+
+export function get(url) {
+  const promise = fetch(url,
+    {method: 'GET'});
+  promise.then(checkStatus);
+  promise.catch(function(e) {
+    throw e});
+  return promise.then(parseJSON);
+}
+
+
+function* search()
+{
+  const apiKey = "057dfa32a18eed0f2dc23dc2e80ed8a0";
+  const searchString = yield select(makeSelectSearchString());
+  const url = "https://api.themoviedb.org/3/search/movie?page=1&include_adult=false&language=en-US&api_key=" + apiKey + "&query=" + searchString;
+
+  try {
+    const data = yield call(get, url);
+    yield put(changeMovieDB(data));
+  } catch (ex) {}
+}
+
+export function* watchForSearchActions() {
+    yield takeEvery(START_SEARCH, search);
+}
+```
+
+Update **reducers.js**
+``` 
+import { combineReducers } from 'redux-immutable';
+import { fromJS, Map } from 'immutable';
+import { CHANGE_MOVIEDB, CHANGE_SEARCH_STRING } from "./actions";
+import { reduce } from 'lodash/collection'
+
+const initialState = fromJS({
+  searchString: '',
+  moviesDB: {},
+});
+
+const buildMovieMap = (movies) => reduce(movies, (result, movie) => result.set(movie.id, fromJS(movie)), new Map());
+
+function movies(state = initialState, action) {
+  switch (action.type) {
+    case CHANGE_SEARCH_STRING:
+      return state
+        .set("searchString", action.searchString);
+    case CHANGE_MOVIEDB:
+      return state
+        .set("moviesDB", buildMovieMap(action.movies.results));
+    default:
+      return state
+  }
+}
+
+export const moviesApp = combineReducers({
+  movies
+});
+```
