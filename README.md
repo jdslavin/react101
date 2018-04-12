@@ -1,11 +1,20 @@
-## Prereqs 
+# Introduction
+This lab is geared toward a ground up build of a react component, including storbooking, state management, communication.
+After this lab you should be able to build a react component and explore more advanced options in every area of ecosystem.
+
+## Prereqs
+Please install the prerequisite's before starting the lab because we dont want to spend a lot of time getting 
+your computer operational for this kind of development
+
 ```
 https://nodejs.org/en/
 https://yarnpkg.com/lang/en/docs/install/
+A development IDE such as Intellij
 ```
 
-## Make a new project
+# Getting started
 
+## Make a new project
 ```
 mkdir react101
 cd react101 
@@ -18,8 +27,8 @@ npm init -y
 ```
 
 Install Webpack into dev dependencies
-
 ```
+https://webpack.js.org/
 npm i webpack webpack-cli -D
 ```
 
@@ -152,8 +161,6 @@ const Index = () => {
 ReactDOM.render(<Index />, document.getElementById("index"));
 ```
 
-
-
 If you now run ```npm run start``` you should see index.html being generated in the dist folder.
 
 Run ```open dist/index.html``` and you should see “Hello React” in your browser.
@@ -177,6 +184,7 @@ Start webpack dev server on port 8080 (default)
 npm run start
 ```
 
+# Prototype UI with storybook 
 ## Add Storybook to the application
 ``` 
 https://storybook.js.org/
@@ -195,7 +203,7 @@ Create file **Movies.js** with the following contents
 ``` 
 import React from "react";
 
-export const App = () => {
+export const Movies = () => {
   return <div>Hello React!</div>;
 };
 ```
@@ -205,9 +213,9 @@ Modify **index.js**
 import React from "react";
 import ReactDOM from "react-dom";
 
-import {App} from './app';
+import {Movies} from './Movies';
 
-ReactDOM.render(<App />, document.getElementById("index"));
+ReactDOM.render(<Movies />, document.getElementById("index"));
 ```
 
 Modify **stories/index.stories.js** 
@@ -215,10 +223,10 @@ Modify **stories/index.stories.js**
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { App } from '../src/app';
+import { Movies } from '../src/Movies';
 
-storiesOf('App', module)
-  .add('storybook', () => <App/>);
+storiesOf('Movies', module)
+  .add('storybook', () => <v/>);
 ```
 
 Run storybook again
@@ -241,7 +249,7 @@ Update **Movies.js**
 ```
 import React from "react";
 
-export class App extends React.Component {
+export class Movies extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -267,15 +275,15 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { IntlProvider } from 'react-intl';
 
-import { App } from '../src/app';
+import { Movies } from '../src/Movies';
 
-storiesOf('App', module)
+storiesOf('Movies', module)
   .addDecorator((getStory) => (
     <IntlProvider locale="en">
       { getStory() }
     </IntlProvider>
   ))
-  .add('storybook', () => <App/>);
+  .add('storybook', () => <Movies/>);
 
 ```
 
@@ -284,7 +292,7 @@ Update **Movies.js**
 import React from "react";
 import { FormattedMessage } from 'react-intl';
 
-export class App extends React.Component {
+export class Moviesv extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -547,7 +555,7 @@ storiesOf('Movies', module)
   ))
   .add('storybook', () => <Movies/>);
 ```
-
+# Application State
 ## Add application state using redux
 ``` 
 https://github.com/reactjs/redux
@@ -747,6 +755,7 @@ export const makeSelectMovies = () => createSelector(
 );
 ```
 
+# Make it do something
 ## Add actions to the UI that update State
 Add file **actions.js**
 ``` 
