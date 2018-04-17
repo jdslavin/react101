@@ -26,14 +26,7 @@ mkdir src
 console.log('hello');
 ```
 
-Add the following scripts into **package.json**
-
-```
-"scripts": {
-       "start": "webpack --mode development",
-       "build": "webpack --mode production"
-     },
-```     
+Replace scripts section in  **package.json** to use webpack for builds
 
 File should look similar to this:
 ``` 
@@ -43,8 +36,9 @@ File should look similar to this:
   "description": "Search app using React",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --mode development",
-    "build": "webpack --mode production"
+-    "test": "echo \"Error: no test specified\" && exit 1"
++    "start": "webpack --mode development",
++    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",

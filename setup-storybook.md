@@ -26,13 +26,18 @@ Modify **src/index.js**
 import React from "react";
 import ReactDOM from "react-dom";
 
-import {Movies} from './Movies';
++ import {Movies} from './Movies';
 
-ReactDOM.render(<Movies />, document.getElementById("index"));
+- const Index = () => {
+-   return <div>Hello React!</div>;
+- };
+
++ ReactDOM.render(<Movies />, document.getElementById("index"));
+- ReactDOM.render(<Index />, document.getElementById("index"));
 ```
 
-Modify **stories/index.stories.js** 
-<pre>
+Rplace the contents of **stories/index.stories.js** 
+```
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
@@ -40,9 +45,9 @@ import { Movies } from '../src/Movies';
 
 storiesOf('Movies', module)
   .add('storybook', () => <Movies/>);
-</pre>
+```
 
-Run storybook again
+Run storybook again to watch changes
 ``` 
 yarn storybook
 ```
@@ -52,9 +57,12 @@ Modify Hello React! to Hello (your name) in **src/Movies.js** and watch storyboo
 import React from "react";
 
 export const Movies = () => {
-  return <div>Hello Jeff!</div>;
+-   return <div>Hello React!</div>;
++   return <div>Hello Jeff!</div>;
 };
 ```
+
+Watch browser where storybook is running
 
 ## Turn app into a component
 Update **src/Movies.js**
@@ -62,13 +70,17 @@ Update **src/Movies.js**
 ```
 import React from "react";
 
-export class Movies extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+- export const Movies = () => {
+-  return <div>Hello React!</div>;
+- };
 
-  render() {
-    return (<div>Hello Jeff!!</div>);
-  }
-}
++ export class Movies extends React.Component {
++  constructor(props) {
++    super(props);
++  }
++
++  render() {
++    return (<div>Hello Jeff!!</div>);
++  }
++ }
 ```

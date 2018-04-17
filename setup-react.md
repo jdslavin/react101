@@ -53,7 +53,7 @@ npm i html-webpack-plugin -D
 
 Create file **webpack.config.js**
 
-<pre> 
+``` 
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const htmlPlugin = new HtmlWebPackPlugin({
@@ -75,14 +75,14 @@ module.exports = {
   },
   plugins: [htmlPlugin]
 };
-</pre>
+```
 
 If you now run ```npm run start``` you should see index.html being generated in the dist folder.
 Open index.html in the browser, the open the developer tools console window to see the output
 
 
 
-Next, change your **src/index.js** file to render a component:
+Next, replace the contents of your **src/index.js** file to render a component:
 
 ``` 
 import React from "react";
@@ -106,9 +106,10 @@ Run ```open dist/index.html``` and you should see “Hello React” in your brow
 
 Change **package.json** start script 
 
-``` 
+```diff
 "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot",
++   "start": "webpack-dev-server --mode development --open --hot",
+-   "start": "webpack --mode development",
     "build": "webpack --mode production"
   },
 ```
