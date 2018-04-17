@@ -33,7 +33,7 @@ export function startSearch() {
 ```
 
 Update **src/sagas.js**
-```
+```diff
 + import { changeMovieDB, START_SEARCH } from "./actions";
 - import { START_SEARCH } from "./actions";
 + import { takeEvery, call, put, select } from "redux-saga/effects";
@@ -84,7 +84,7 @@ export function* watchForSearchActions() {
 ```
 
 Update **src/reducers.js**
-``` 
+``` diff
 import { combineReducers } from 'redux-immutable';
 import { fromJS, Map } from 'immutable';
 + import { CHANGE_MOVIEDB, CHANGE_SEARCH_STRING } from "./actions";
