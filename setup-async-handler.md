@@ -11,13 +11,13 @@ yarn add babel-runtime
 yarn add babel-plugin-transform-runtime -D
 ```
 
-Update **.babelrc**
+Update **.babelrc** 
 ```
 {
-  "plugins": ["react-hot-loader/babel", ["transform-runtime", {
-    "polyfill": false,
-    "regenerator": true
-  }]],
++  "plugins": ["react-hot-loader/babel", ["transform-runtime", {
++    "polyfill": false,
++    "regenerator": true
++  }]],
   "presets": ["env", "react"]
 }
 ```
@@ -37,7 +37,7 @@ export function* watchForSearchActions() {
 }
 ```
 
-Update **src/index.js**
+Replace contents of **src/index.js** 
 ```
 import React from "react";
 import ReactDOM from "react-dom";

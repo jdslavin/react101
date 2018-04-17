@@ -12,7 +12,7 @@
 
 [Step 5 - Add Material UI support](setup-material-ui.md)
 
-[Step 6 - Add Application State to the application](setup-state.md)
+[Step 6 - Add Application State](setup-state.md)
 
 [Step 7 - Add Actions to the UI](setup-actions.md)
 

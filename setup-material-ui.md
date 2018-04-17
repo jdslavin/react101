@@ -10,10 +10,10 @@ yarn add @material-ui/icons
 ```
 
 Update **src/Movies.js** to show a title, we added the Typography component to draw the name as a title.
-```
+```diff
 import React from "react";
 import { FormattedMessage } from 'react-intl';
-import Typography from 'material-ui/Typography';
++import Typography from 'material-ui/Typography';
 
 
 export class Movies extends React.Component {
@@ -24,12 +24,14 @@ export class Movies extends React.Component {
   render() {
     const name = 'Jeff';
     return (
-      <Typography variant='title'>
++      <Typography variant='title'>
+-      <div>
         <FormattedMessage
           id="hello"
           defaultMessage='Hello {name}!!'
           values={{name: name}}/>
-      </Typography>);
++      </Typography>);
+-      </div>);
   }
 }
 ```
@@ -38,7 +40,7 @@ Run storybook to see the changes to the UI.
 
 
 ## Build out Rendering of UI 
-Update file **src/Movies.js**
+Replace contents of file **src/Movies.js**
 ``` 
 import React from "react";
 import MovieList from './MovieList';
@@ -222,23 +224,25 @@ SearchBox.propTypes = {
 export default withStyles(styles)(SearchBox);
 ```
 
-Update **src/index.js**
+Update **src/index.js** to reference default export versus specific export in the Movies file
 ``` 
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Movies from './Movies';
++ import Movies from './Movies';
+- import { Movies } from './Movies';
 
 ReactDOM.render(<Movies />, document.getElementById("index"));
 ```
 
-Update **stories/index.stories.js**
+Update **stories/index.stories.js** to reference default export versus specific export in the Movies file
 ``` 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { IntlProvider } from 'react-intl';
 
-import  Movies from '../src/Movies';
++ import  Movies from '../src/Movies';
+- import { Movies } from '../src/Movies';
 
 storiesOf('Movies', module)
   .addDecorator((getStory) => (

@@ -25,14 +25,14 @@ Update **src/SearchBox.js**
 import React from "react";
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import { createStructuredSelector } from 'reselect';
-import { connect } from 'react-redux';
++ import { createStructuredSelector } from 'reselect';
++ import { connect } from 'react-redux';
 
 import TextField from 'material-ui/TextField';
 import  { InputAdornment } from 'material-ui/Input';
 import Search from '@material-ui/icons/Search';
-import { makeSelectSearchString } from "./selectors";
-import { changeSearchString, startSearch } from "./actions";
++ import { makeSelectSearchString } from "./selectors";
++ import { changeSearchString, startSearch } from "./actions";
 
 const styles = theme => ({
   search: {
@@ -47,15 +47,16 @@ export class SearchBox extends React.Component {
   }
 
  render() {
-    const { classes, searchString, onInputSearchString, onKeyDown } = this.props;
++    const { classes, searchString, onInputSearchString, onKeyDown } = this.props;
+-     const {classes} = this.props;
     return (
       <div className={classes.search}>
         <TextField
-          value={searchString}
++          value={searchString}
           id="input-with-icon-adornment"
           placeholder="Search..."
-          onChange={onInputSearchString}
-          onKeyDown={onKeyDown}
++          onChange={onInputSearchString}
++          onKeyDown={onKeyDown}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -71,38 +72,39 @@ export class SearchBox extends React.Component {
 
 SearchBox.propTypes = {
   classes: PropTypes.object.isRequired,
-  searchString: PropTypes.string,
-  onInputSearchString: PropTypes.func,
-  onKeyDown: PropTypes.func
++  searchString: PropTypes.string,
++  onInputSearchString: PropTypes.func,
++  onKeyDown: PropTypes.func
 };
 
-const mapStateToProps = createStructuredSelector({
-  searchString: makeSelectSearchString(),
-});
++ const mapStateToProps = createStructuredSelector({
++   searchString: makeSelectSearchString(),
++ });
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    onInputSearchString: (evt) => {
-      if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(changeSearchString(evt.target.value));
-    },
-    onKeyDown: (evt) => {
-      if (evt.keyCode === 13)
-      {
-        dispatch(startSearch());
-      }
-    },
-  };
-}
++ export function mapDispatchToProps(dispatch) {
++  return {
++    onInputSearchString: (evt) => {
++      if (evt !== undefined && evt.preventDefault) evt.preventDefault();
++      dispatch(changeSearchString(evt.target.value));
++    },
++    onKeyDown: (evt) => {
++      if (evt.keyCode === 13)
++      {
++        dispatch(startSearch());
++      }
++    },
++  };
++ }
 
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(SearchBox));
++ export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(SearchBox));
+- export default withStyles(styles)(SearchBox);
 ```
 
 Update **src/reducers.js**
 ``` 
 import { combineReducers } from 'redux-immutable';
 import { fromJS } from 'immutable';
-import { CHANGE_SEARCH_STRING } from "./actions";
++ import { CHANGE_SEARCH_STRING } from "./actions";
 
 const initialState = fromJS({
   searchString: '',
@@ -111,9 +113,9 @@ const initialState = fromJS({
 
 function movies(state = initialState, action) {
   switch (action.type) {
-    case CHANGE_SEARCH_STRING:
-      return state
-        .set("searchString", action.searchString);
++    case CHANGE_SEARCH_STRING:
++      return state
++        .set("searchString", action.searchString);
     default:
       return state
   }

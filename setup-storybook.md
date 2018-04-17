@@ -26,7 +26,7 @@ Modify **src/index.js**
 import React from "react";
 import ReactDOM from "react-dom";
 
-+ import {Movies} from './Movies';
++ import { Movies } from './Movies';
 
 - const Index = () => {
 -   return <div>Hello React!</div>;
