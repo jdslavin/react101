@@ -1,5 +1,10 @@
 # React 101 - build a functional application from the ground up
 
+This repository contains a completed example of the entire lab.  
+
+To use this lab as a learning exercise follow the steps in the README.md file step
+by step and not use a cloned version of the repo.
+
 [Overview and Prerequisites](overview.md)
 
 [Step 1 - Create Project](create-project.md)
