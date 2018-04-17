@@ -1,3 +1,4 @@
+# Create Project
 ## Make a new project
 ```
 mkdir react101
@@ -16,7 +17,7 @@ https://webpack.js.org/
 npm i webpack webpack-cli -D
 ```
 
-Create a **index.js** in src directory
+Create **src/index.js** in src directory
 ```
 mkdir src
 ```
@@ -59,3 +60,4 @@ To run build
 ``` 
 npm run build
 ```
+
