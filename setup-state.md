@@ -65,7 +65,7 @@ export const makeSelectMovies = () => createSelector(
 
 
 Update **stories/index.stories.js**
-``` 
+```diff 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { IntlProvider } from 'react-intl';
@@ -107,7 +107,7 @@ storiesOf('Movies', module)
 ```
 
 Update **src/MovieList.js** to read movies from state
-``` 
+```diff
 import React from "react";
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
@@ -187,7 +187,7 @@ yarn add lodash
 ```
 
 Update **src/selectors.js** to sort movies by title
-```
+```diff
 import { createSelector } from 'reselect';
 import { toJS, List } from 'immutable';
 + import { orderBy } from 'lodash/collection';

@@ -29,7 +29,7 @@ console.log('hello');
 Replace scripts section in  **package.json** to use webpack for builds
 
 File should look similar to this:
-``` 
+```diff
 {
   "name": "react101",
   "version": "1.0.0",

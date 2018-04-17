@@ -225,7 +225,7 @@ export default withStyles(styles)(SearchBox);
 ```
 
 Update **src/index.js** to reference default export versus specific export in the Movies file
-``` 
+```diff
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -236,7 +236,7 @@ ReactDOM.render(<Movies />, document.getElementById("index"));
 ```
 
 Update **stories/index.stories.js** to reference default export versus specific export in the Movies file
-``` 
+```diff
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { IntlProvider } from 'react-intl';

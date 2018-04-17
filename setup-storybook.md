@@ -22,7 +22,7 @@ export const Movies = () => {
 ```
 
 Modify **src/index.js** 
-``` 
+```diff
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -53,7 +53,7 @@ yarn storybook
 ```
 
 Modify Hello React! to Hello (your name) in **src/Movies.js** and watch storybook in browser
-```
+```diff
 import React from "react";
 
 export const Movies = () => {
@@ -67,7 +67,7 @@ Watch browser where storybook is running
 ## Turn app into a component
 Update **src/Movies.js**
 
-```
+```diff
 import React from "react";
 
 - export const Movies = () => {

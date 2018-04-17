@@ -21,7 +21,7 @@ export function startSearch() {
 ```
 
 Update **src/SearchBox.js**
-``` 
+```diff
 import React from "react";
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
@@ -101,7 +101,7 @@ SearchBox.propTypes = {
 ```
 
 Update **src/reducers.js**
-``` 
+```diff 
 import { combineReducers } from 'redux-immutable';
 import { fromJS } from 'immutable';
 + import { CHANGE_SEARCH_STRING } from "./actions";

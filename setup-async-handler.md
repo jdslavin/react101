@@ -12,7 +12,7 @@ yarn add babel-plugin-transform-runtime -D
 ```
 
 Update **.babelrc** 
-```
+```diff
 {
 +  "plugins": ["react-hot-loader/babel", ["transform-runtime", {
 +    "polyfill": false,
