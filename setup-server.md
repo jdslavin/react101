@@ -4,11 +4,11 @@
 https://github.com/whatwg/fetch
 yarn add whatwg-fetch
 ```
-Update **actions.js**
-``` 
+Update **src/actions.js**
+```diff 
 export const CHANGE_SEARCH_STRING = 'react101/CHANGE_SEARCH_STRING';
 export const START_SEARCH = 'react101/START_SEARCH';
-export const CHANGE_MOVIEDB = 'react101/CHANGE_MOVIEDB';
++ export const CHANGE_MOVIEDB = 'react101/CHANGE_MOVIEDB';
 
 export function changeSearchString(searchString) {
   return {
@@ -24,15 +24,15 @@ export function startSearch() {
 }
 
 
-export function changeMovieDB(movies) {
-  return {
-    type: CHANGE_MOVIEDB,
-    movies
-  };
-}
++ export function changeMovieDB(movies) {
++  return {
++    type: CHANGE_MOVIEDB,
++    movies
++  };
++ }
 ```
 
-Update **sagas.js**
+Update **src/sagas.js**
 ```
 import { changeMovieDB, START_SEARCH } from "./actions";
 import { takeEvery, call, put, select } from "redux-saga/effects";
