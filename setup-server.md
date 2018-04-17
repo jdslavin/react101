@@ -34,45 +34,48 @@ export function startSearch() {
 
 Update **src/sagas.js**
 ```
-import { changeMovieDB, START_SEARCH } from "./actions";
-import { takeEvery, call, put, select } from "redux-saga/effects";
-import 'whatwg-fetch';
-import { makeSelectSearchString } from "./selectors";
++ import { changeMovieDB, START_SEARCH } from "./actions";
+- import { START_SEARCH } from "./actions";
++ import { takeEvery, call, put, select } from "redux-saga/effects";
+- import { takeEvery } from "redux-saga/effects";
 
-function parseJSON(response) {
-  return response.json();
-}
++ import 'whatwg-fetch';
++ import { makeSelectSearchString } from "./selectors";
 
-function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
++ function parseJSON(response) {
++   return response.json();
++ }
 
-  const error = new Error(response.statusText);
-  error.response = response;
-  throw error;
-}
++ function checkStatus(response) {
++   if (response.status >= 200 && response.status < 300) {
++     return response;
++   }
++   const error = new Error(response.statusText);
++   error.response = response;
++   throw error;
++ }
 
-export function get(url) {
-  const promise = fetch(url,
-    {method: 'GET'});
-  promise.then(checkStatus);
-  promise.catch(function(e) {
-    throw e});
-  return promise.then(parseJSON);
-}
++ export function get(url) {
++   const promise = fetch(url,
++     {method: 'GET'});
++   promise.then(checkStatus);
++   promise.catch(function(e) {
++     throw e});
++   return promise.then(parseJSON);
++ }
 
 
 function* search()
 {
-  const apiKey = "057dfa32a18eed0f2dc23dc2e80ed8a0";
-  const searchString = yield select(makeSelectSearchString());
-  const url = "https://api.themoviedb.org/3/search/movie?page=1&include_adult=false&language=en-US&api_key=" + apiKey + "&query=" + searchString;
-
-  try {
-    const data = yield call(get, url);
-    yield put(changeMovieDB(data));
-  } catch (ex) {}
++  const apiKey = "057dfa32a18eed0f2dc23dc2e80ed8a0";
++  const searchString = yield select(makeSelectSearchString());
++  const url = "https://api.themoviedb.org/3/search/movie?page=1&include_adult=false&language=en-US&api_key=" + apiKey + "&query=" + searchString;
++
++  try {
++    const data = yield call(get, url);
++    yield put(changeMovieDB(data));
++   } catch (ex) {}
+-  console.log("search called");
 }
 
 export function* watchForSearchActions() {
@@ -80,11 +83,12 @@ export function* watchForSearchActions() {
 }
 ```
 
-Update **reducers.js**
+Update **src/reducers.js**
 ``` 
 import { combineReducers } from 'redux-immutable';
 import { fromJS, Map } from 'immutable';
-import { CHANGE_MOVIEDB, CHANGE_SEARCH_STRING } from "./actions";
++ import { CHANGE_MOVIEDB, CHANGE_SEARCH_STRING } from "./actions";
+- import { CHANGE_SEARCH_STRING } from "./actions";
 import { reduce } from 'lodash/collection'
 
 const initialState = fromJS({
@@ -99,9 +103,9 @@ function movies(state = initialState, action) {
     case CHANGE_SEARCH_STRING:
       return state
         .set("searchString", action.searchString);
-    case CHANGE_MOVIEDB:
-      return state
-        .set("moviesDB", buildMovieMap(action.movies.results));
++    case CHANGE_MOVIEDB:
++      return state
++        .set("moviesDB", buildMovieMap(action.movies.results));
     default:
       return state
   }
