@@ -79,6 +79,11 @@ npm run build
 ## Setting up React and Babel
 
 Install react and react-dom as a dependency:
+``` 
+https://reactjs.org/
+https://reactjs.org/docs/react-dom.html
+https://babeljs.io/
+```
 
 ``` 
 npm i react react-dom -S
