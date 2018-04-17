@@ -1,80 +1,10 @@
-# Introduction
-This lab is geared toward a ground up build of a react component, including storbooking, state management, communication.
-After this lab you should be able to build a react component and explore more advanced options in every area of ecosystem.
+# React 101 - build a functional application from the ground up
 
-## Prereqs
-Please install the prerequisite's before starting the lab because we dont want to spend a lot of time getting 
-your computer operational for this kind of development
+[Overview and Prerequisites](overview.md)
 
-```
-https://nodejs.org/en/
-https://yarnpkg.com/lang/en/docs/install/
-A development IDE such as Intellij
-```
+[Step 1 - Create Project](create-project.md)
 
-# Getting started
 
-## Make a new project
-```
-mkdir react101
-cd react101 
-```
-
-Create a **package.json**
-
-```
-npm init -y
-```
-
-Install Webpack into dev dependencies
-```
-https://webpack.js.org/
-npm i webpack webpack-cli -D
-```
-
-Create a **index.js** in src directory
-```
-mkdir src
-```
-
-```
-console.log('hello');
-```
-
-Add the following scripts into **package.json**
-
-```
-"scripts": {
-       "start": "webpack --mode development",
-       "build": "webpack --mode production"
-     },
-```     
-
-File should look similar to this:
-``` 
-{
-  "name": "react101",
-  "version": "1.0.0",
-  "description": "Search app using React",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack --mode development",
-    "build": "webpack --mode production"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "webpack": "^4.5.0",
-    "webpack-cli": "^2.0.13",
-  }
-}
-```
-
-To run build
-``` 
-npm run build
-```
 
 ## Setting up React and Babel
 
@@ -129,7 +59,7 @@ npm i html-webpack-plugin -D
 
 Create file **webpack.config.js**
 
-``` 
+<pre> 
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const htmlPlugin = new HtmlWebPackPlugin({
@@ -151,7 +81,7 @@ module.exports = {
   },
   plugins: [htmlPlugin]
 };
-```
+</pre>
 
 Next, change your **index.js** file to render a component:
 
@@ -224,15 +154,15 @@ ReactDOM.render(<Movies />, document.getElementById("index"));
 ```
 
 Modify **stories/index.stories.js** 
-``` 
+<pre>
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Movies } from '../src/Movies';
 
 storiesOf('Movies', module)
-  .add('storybook', () => <v/>);
-```
+  .add('storybook', () => <Movies/>);
+</pre>
 
 Run storybook again
 ``` 
