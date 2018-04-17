@@ -100,3 +100,5 @@ if (module.hot) {
   });
 }
 ```
+
+[Proceed to Step 9 - Server Integration](setup-server.md)

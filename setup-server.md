@@ -115,3 +115,5 @@ export const moviesApp = combineReducers({
   movies
 });
 ```
+
+Congratulations, you have created a functioning react applicaton

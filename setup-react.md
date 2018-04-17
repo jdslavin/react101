@@ -118,3 +118,5 @@ Start webpack dev server on port 8080 (default)
 ``` 
 npm run start
 ```
+
+[Proceed to Step 3 - Setup Storybook](setup-storybook.md)

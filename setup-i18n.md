@@ -50,3 +50,5 @@ export class Movies extends React.Component {
   }
 }
 ```
+
+[Proceed to Step 5 - Add Material UI support](setup-material-ui.md)

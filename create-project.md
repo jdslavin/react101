@@ -55,3 +55,4 @@ To run build
 npm run build
 ```
 
+[Proceed to Step 2 - Setup React](setup-react.md)

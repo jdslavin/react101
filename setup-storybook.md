@@ -84,3 +84,5 @@ import React from "react";
 +  }
 + }
 ```
+
+[Proceed to Step 4 - Add Internationalization support](setup-i18n.md)

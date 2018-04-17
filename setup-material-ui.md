@@ -254,3 +254,5 @@ storiesOf('Movies', module)
 ```
 Take a look at your storybook now, it should render the UI.  This is a good point to review the UI with other people to see if 
 this is what people are expecting in a user interface.
+
+[Proceed to Step 6 - Add Application State](setup-state.md)

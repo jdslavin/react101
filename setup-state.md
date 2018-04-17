@@ -209,3 +209,5 @@ export const makeSelectMovies = () => createSelector(
   }
 );
 ```
+
+[Proceed to Step 7 - Add Actions to the UI](setup-actions.md)

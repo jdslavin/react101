@@ -12,3 +12,4 @@ https://yarnpkg.com/lang/en/docs/install/
 A development IDE such as Intellij
 ```
 
+[Proceed to Step 1 - Create Project](create-project.md)

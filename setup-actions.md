@@ -127,3 +127,5 @@ export const moviesApp = combineReducers({
 ```
 
 Run storybook and watch the actions in the redux addin, take a look at state also and state changes.
+
+[Proceed to Step 8 - Add Async Event Handler](setup-async-handler.md)
