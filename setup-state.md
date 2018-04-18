@@ -1,12 +1,17 @@
 # Add Application State 
-## Add application state using redux
-``` 
-https://github.com/reactjs/redux
-https://github.com/reactjs/reselect
-https://github.com/facebook/immutable-js
-https://github.com/gajus/redux-immutable
-```
+## References 
+[Redux - core state management](https://github.com/reactjs/redux)
 
+[Reselect - Library for querying and memoizing state](https://github.com/reactjs/reselect)
+
+[Immutable data type support for javascript](https://github.com/facebook/immutable-js)
+
+[Immutable integration into redux store](https://github.com/gajus/redux-immutable)
+
+[Lodash - High level functions for working with javascript collections](https://lodash.com/)
+
+
+## Add application state using redux
 ```
 yarn add react-redux
 yarn add redux-devtools -D
@@ -182,7 +187,6 @@ MovieList.propTypes = {
 
 ## Add Lodash to simplify collection manipulation
 ```
-https://lodash.com/
 yarn add lodash
 ```
 

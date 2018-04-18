@@ -1,11 +1,17 @@
 # Add Async Event Handler
+# References 
+[Redux sagas - library that simplifies asynchronous event processing](https://redux-saga.js.org/)
+
+[React hot code reload support](https://github.com/gaearon/react-hot-loader)
+
+## Install redux sagas
+
 ```
-https://redux-saga.js.org/
 yarn add redux-saga
 ```
 
+## Install react hot loader and bable runtime helpers
 ```
-https://github.com/gaearon/react-hot-loader
 yarn add react-hot-loader
 yarn add babel-runtime
 yarn add babel-plugin-transform-runtime -D

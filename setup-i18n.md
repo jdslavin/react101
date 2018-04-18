@@ -1,7 +1,8 @@
 # Add Internationalization support
-```
-https://github.com/yahoo/react-intl
-```
+## References
+[React Internationalizion Library](https://github.com/yahoo/react-intl)
+
+## Install react-intl
 
 ``` 
 yarn add react-intl 

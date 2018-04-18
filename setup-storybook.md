@@ -1,8 +1,8 @@
 # Setup Storybook
+## References
+[Storybook - Development tool for working on UI in different states](https://storybook.js.org/)
+
 ## Add Storybook to the application
-``` 
-https://storybook.js.org/
-```
 
 ```
 npm i -g @storybook/cli

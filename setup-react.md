@@ -1,24 +1,24 @@
 # Setup React
+## References
 
-## Setting up React and Babel
+[react - Core react site](https://reactjs.org/)
 
-Install react and react-dom as a dependency:
-``` 
-https://reactjs.org/
-https://reactjs.org/docs/react-dom.html
-https://babeljs.io/
-```
+[react-dom - React Dom intetration extensions](https://reactjs.org/docs/react-dom.html)
 
+[Bable - Javascript cross browser support](https://babeljs.io/)
+
+## Install react and react-dom as a dependency:
 ``` 
 npm i react react-dom -S
 ```
+
+## Install Babel
 
 Install babel-core, babel-loader, babel-preset-env and babel-preset-react as a dev dependency
 
 ``` 
 npm i babel-core babel-loader babel-preset-env babel-preset-react -D
 ```
-
 
 Add **.babelrc** file to provide the options for babel-loader
 
@@ -27,6 +27,7 @@ Add **.babelrc** file to provide the options for babel-loader
    "presets": ["env", "react"]
  }
 ```
+
 
 Add **index.html** file to your src folder
 

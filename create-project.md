@@ -1,4 +1,8 @@
 # Create Project
+
+## References
+[Webpack -  Webpack is a static module bundler for modern JavaScript applications](https://webpack.js.org/)
+
 ## Make a new project
 ```
 mkdir react101
@@ -11,9 +15,10 @@ Create a **package.json**
 npm init -y
 ```
 
-Install Webpack into dev dependencies
+## Install Webpack into dev dependencies
+
+
 ```
-https://webpack.js.org/
 npm i webpack webpack-cli -D
 ```
 

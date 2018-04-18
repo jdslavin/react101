@@ -1,7 +1,9 @@
 #  Server Integration
+## References 
+[whatwg-fetch - Library to simplify web requests](https://github.com/whatwg/fetch)
+
 ## Hook up to the remote to referesh data
 ``` 
-https://github.com/whatwg/fetch
 yarn add whatwg-fetch
 ```
 Update **src/actions.js**

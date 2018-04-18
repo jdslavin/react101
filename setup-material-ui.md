@@ -1,9 +1,8 @@
 # Setup Material UI 
+## References
+[Material UI component library](https://material-ui-next.com/)
 
 ## Add material-ui for prebuilt ui components
-``` 
-https://material-ui-next.com/
-```
 ```
 yarn add material-ui@next
 yarn add @material-ui/icons
