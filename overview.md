@@ -6,9 +6,11 @@ After this lab you should be able to build a react component and explore more ad
 Please install the prerequisite's before starting the lab because we dont want to spend a lot of time getting 
 your computer operational for this kind of development
 
+[Install node to get npm](https://nodejs.org/en/)
+
+[Install yarn](https://yarnpkg.com/lang/en/docs/install/)
+
 ```
-https://nodejs.org/en/
-https://yarnpkg.com/lang/en/docs/install/
 A development IDE such as Intellij
 ```
 
