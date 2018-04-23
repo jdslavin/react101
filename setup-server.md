@@ -118,4 +118,4 @@ export const moviesApp = combineReducers({
 });
 ```
 
-Congratulations, you have created a functioning react applicaton
+[Proceed to Step 10 - Testing](setup-testing.md)

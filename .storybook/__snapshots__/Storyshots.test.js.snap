@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Movies storybook 1`] = `
+<div
+  className="Movies-container-1"
+>
+  <div>
+    <header
+      className="MuiPaper-root-11 MuiPaper-elevation4-17 MuiAppBar-root-3 MuiAppBar-positionStatic-7 MuiAppBar-colorDefault-8"
+    >
+      <div
+        className="MuiToolbar-root-38 MuiToolbar-gutters-39"
+      >
+        <h2
+          className="MuiTypography-root-40 MuiTypography-title-46 Movies-title-2"
+        >
+          <span>
+            Movies for Jeff!!
+          </span>
+        </h2>
+        <div
+          className="Connect-SearchBox--search-64"
+        >
+          <div
+            aria-describedby={undefined}
+            className="MuiFormControl-root-65"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+          >
+            <div
+              className="MuiInput-root-69 MuiInput-formControl-70 MuiInput-underline-73"
+            >
+              <div
+                className="MuiInputAdornment-root-83 MuiInputAdornment-positionStart-84"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="MuiSvgIcon-root-86"
+                  color={undefined}
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <path
+                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <input
+                aria-invalid={false}
+                aria-required={false}
+                autoComplete={undefined}
+                autoFocus={undefined}
+                className="MuiInput-input-77"
+                defaultValue={undefined}
+                disabled={false}
+                id="input-with-icon-adornment"
+                name={undefined}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={undefined}
+                onKeyUp={undefined}
+                placeholder="Search..."
+                readOnly={undefined}
+                required={undefined}
+                rows={undefined}
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div
+    className="MuiPaper-root-11 MuiPaper-elevation2-15 MuiPaper-rounded-12 Connect-MovieList--root-92"
+  >
+    <table
+      className="MuiTable-root-95 Connect-MovieList--table-93"
+    >
+      <thead
+        className="MuiTableHead-root-96"
+      >
+        <tr
+          className="MuiTableRow-root-97 MuiTableRow-head-98"
+        >
+          <th
+            aria-sort={null}
+            className="MuiTableCell-root-102 MuiTableCell-head-103"
+            scope="col"
+          >
+            Title
+          </th>
+          <th
+            aria-sort={null}
+            className="MuiTableCell-root-102 MuiTableCell-head-103"
+            scope="col"
+          >
+            Release Date
+          </th>
+          <th
+            aria-sort={null}
+            className="MuiTableCell-root-102 MuiTableCell-head-103"
+            scope="col"
+          >
+            Summary
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className="MuiTableBody-root-110"
+      >
+        <tr
+          className="MuiTableRow-root-97"
+        >
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root-102 MuiTableCell-body-104"
+            scope={undefined}
+          >
+            American Beauty
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root-102 MuiTableCell-body-104"
+            scope={undefined}
+          >
+            1999-09-15
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root-102 MuiTableCell-body-104 Connect-MovieList--overview-94"
+            scope={undefined}
+          >
+            Lester Burnham, a depressed suburban father in a mid-life crisis, decides to turn his hectic life around after developing an infatuation with his daughter's attractive friend.
+          </td>
+        </tr>
+        <tr
+          className="MuiTableRow-root-97"
+        >
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root-102 MuiTableCell-body-104"
+            scope={undefined}
+          >
+            American Pie
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root-102 MuiTableCell-body-104"
+            scope={undefined}
+          >
+            1999-07-09
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root-102 MuiTableCell-body-104 Connect-MovieList--overview-94"
+            scope={undefined}
+          >
+            At a high-school party, four friends find that losing their collective virginity isn't as easy as they had thought. But they still believe that they need to do so before college. To motivate themselves, they enter a pact to all "score." by their senior prom.
+          </td>
+        </tr>
+        <tr
+          className="MuiTableRow-root-97"
+        >
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root-102 MuiTableCell-body-104"
+            scope={undefined}
+          >
+            American Sniper
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root-102 MuiTableCell-body-104"
+            scope={undefined}
+          >
+            2014-12-11
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root-102 MuiTableCell-body-104 Connect-MovieList--overview-94"
+            scope={undefined}
+          >
+            U.S. Navy SEAL Chris Kyle takes his sole mission—protect his comrades—to heart and becomes one of the most lethal snipers in American history. His pinpoint accuracy not only saves countless lives but also makes him a prime target of insurgents. Despite grave danger and his struggle to be a good husband and father to his family back in the States, Kyle serves four tours of duty in Iraq. However, when he finally returns home, he finds that he cannot leave the war behind.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

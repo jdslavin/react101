@@ -24,3 +24,5 @@ by step and not use a cloned version of the repo.
 [Step 8 - Add Async Event Handler](setup-async-handler.md)
 
 [Step 9 - Server Integration](setup-server.md)
+
+[Step 10 - Testing](setup-testing.md)
