@@ -88,7 +88,7 @@ export function* watchForSearchActions() {
 Update **src/reducers.js**
 ```diff
 import { combineReducers } from 'redux-immutable';
-- import { fromJS, Map } from 'immutable';
+- import { fromJS } from 'immutable';
 + import { fromJS, Map } from 'immutable';
 - import { CHANGE_SEARCH_STRING } from "./actions";
 + import { CHANGE_MOVIEDB, CHANGE_SEARCH_STRING } from "./actions";
@@ -99,7 +99,7 @@ const initialState = fromJS({
   moviesDB: {},
 });
 
-const buildMovieMap = (movies) => reduce(movies, (result, movie) => result.set(movie.id, fromJS(movie)), new Map());
++ const buildMovieMap = (movies) => reduce(movies, (result, movie) => result.set(movie.id, fromJS(movie)), new Map());
 
 function movies(state = initialState, action) {
   switch (action.type) {
