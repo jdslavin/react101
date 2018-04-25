@@ -25,7 +25,7 @@ Update scripts in **package.json**
     "build": "webpack --mode production",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-+    "test": "jest --watchAll"
++    "test": "jest"
   },
 ```
 

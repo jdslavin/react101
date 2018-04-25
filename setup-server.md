@@ -86,11 +86,12 @@ export function* watchForSearchActions() {
 ```
 
 Update **src/reducers.js**
-``` diff
+```diff
 import { combineReducers } from 'redux-immutable';
-import { fromJS, Map } from 'immutable';
-+ import { CHANGE_MOVIEDB, CHANGE_SEARCH_STRING } from "./actions";
+- import { fromJS, Map } from 'immutable';
++ import { fromJS, Map } from 'immutable';
 - import { CHANGE_SEARCH_STRING } from "./actions";
++ import { CHANGE_MOVIEDB, CHANGE_SEARCH_STRING } from "./actions";
 import { reduce } from 'lodash/collection'
 
 const initialState = fromJS({

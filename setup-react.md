@@ -29,7 +29,7 @@ Add **.babelrc** file to provide the options for babel-loader
 ```
 
 
-Add **index.html** file to your src folder
+Add **src/index.html** file
 
 ``` 
 <!DOCTYPE html>

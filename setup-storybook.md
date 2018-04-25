@@ -36,7 +36,7 @@ import ReactDOM from "react-dom";
 - ReactDOM.render(<Index />, document.getElementById("index"));
 ```
 
-Rplace the contents of **stories/index.stories.js** 
+Replace the contents of **stories/index.stories.js**
 ```
 import React from 'react';
 import { storiesOf } from '@storybook/react';
